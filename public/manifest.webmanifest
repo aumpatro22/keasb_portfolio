@@ -1,0 +1,25 @@
+{
+  "name": "Kesab Kumar Nayak – Portfolio",
+  "short_name": "KKN Portfolio",
+  "description": "DevOps & Cloud Infrastructure Engineer based in Osnabrück, Germany",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060d1f",
+  "theme_color": "#060d1f",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["technology", "portfolio"],
+  "lang": "en"
+}

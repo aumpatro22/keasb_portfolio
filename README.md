@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kesab Kumar Nayak — Portfolio
 
-## Getting Started
+A production-grade personal portfolio for **Kesab Kumar Nayak**, DevOps & Cloud Infrastructure Engineer.
 
-First, run the development server:
+Built with Next.js 14 (App Router), TypeScript strict mode, Tailwind CSS, and Framer Motion.
+
+---
+
+## Technology Stack
+
+| Tool | Purpose |
+|---|---|
+| Next.js 14 (App Router) | Framework + SSR |
+| TypeScript (strict) | Type safety |
+| Tailwind CSS | Styling |
+| Framer Motion | Animations |
+| React Hook Form + Zod | Form validation |
+| Lucide React | Icons |
+| next/font | Optimized Google Fonts |
+
+---
+
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment (Vercel)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this folder to GitHub
+2. Import at vercel.com/new
+3. Set root directory to `portfolio/` if deploying from parent folder
+4. Deploy — Vercel auto-detects Next.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Environment Variables (optional — for contact form):**
 
-## Deploy on Vercel
+```env
+RESEND_API_KEY=re_...
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact Form — Email Setup
+
+The form is fully validated. To enable email delivery:
+
+1. Sign up at resend.com (free: 3,000 emails/month)
+2. Install: `npm install resend`
+3. Uncomment the Resend block in `app/api/contact/route.ts`
+4. Add `RESEND_API_KEY` to Vercel environment variables
+
+---
+
+## Folder Structure
+
+```
+portfolio/
+├── app/
+│   ├── api/contact/route.ts
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── layout/   Navbar, Footer, Container, ScrollProgress
+│   ├── sections/ Hero, About, Experience, Skills, Certifications, Education, CloudSnapshot, Contact
+│   └── common/   SectionHeader, TechBadge
+├── constants/index.ts
+├── data/         experience.ts, skills.ts, certifications.ts, education.ts
+├── hooks/        useIntersectionObserver, useReducedMotion, useScrollProgress, useMediaQuery
+├── lib/utils.ts
+├── types/index.ts
+└── public/       favicon.svg, robots.txt, sitemap.xml, manifest.webmanifest
+```
+
+---
+
+## Customization
+
+- **Contact info** → `constants/index.ts`
+- **Experience** → `data/experience.ts`
+- **Skills** → `data/skills.ts`
+- **Certifications** → `data/certifications.ts`
+- **Education** → `data/education.ts`
+- **Design tokens** → `app/globals.css` `:root`
+- **Resume PDF** → Drop `resume.pdf` into `public/`
+
+---
+
+&copy; 2025 Kesab Kumar Nayak. All rights reserved.
