@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { Resend } from "resend";
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -22,19 +23,21 @@ export async function POST(request: NextRequest) {
 
     const { name, email, subject, message } = parsed.data;
 
-    // TODO: Connect an email service here (recommended: Resend.com)
-    // Example with Resend:
-    // import { Resend } from 'resend';
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'portfolio@yourdomain.com',
-    //   to: 'kesabnayak4@gmail.com',
-    //   subject: `Portfolio Contact: ${subject}`,
-    //   text: `From: ${name} (${email})\n\n${message}`,
-    // });
+    // Use the API key from .env.local
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // For now, log to console (development mode)
-    console.log("Contact form submission:", { name, email, subject, message });
+    await resend.emails.send({
+      from: 'onboarding@resend.dev', // You must use this email until you verify your own domain in Resend
+      to: 'kesabnayak4@gmail.com',
+      subject: `Portfolio Contact: ${subject}`,
+      html: `<p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <br/>
+             <p><strong>Message:</strong></p>
+             <p>${message.replace(/\n/g, '<br/>')}</p>`,
+    });
+
+    console.log("Contact form email sent via Resend for:", email);
 
     return NextResponse.json(
       { success: true, message: "Message received successfully" },
