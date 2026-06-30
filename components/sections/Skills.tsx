@@ -41,58 +41,58 @@ const categoryDetails: Record<
   "Cloud & AWS": {
     description: "Designing, deploying, and managing scalable, highly available, and fault-tolerant systems on AWS compute, storage, database, and networking services.",
     color: "#3b82f6",
-    bgClass: "bg-blue-50/50 dark:bg-blue-950/20",
-    textClass: "text-blue-600 dark:text-blue-400",
-    borderClass: "border-blue-100 dark:border-blue-900/30",
+    bgClass: "bg-blue-500/10",
+    textClass: "text-blue-400",
+    borderClass: "border-blue-500/20",
   },
   "Containers & Orchestration": {
     description: "Configuring and managing containerized applications with Docker and orchestrating them at scale using Kubernetes clusters and Helm.",
     color: "#0ea5e9",
-    bgClass: "bg-sky-50/50 dark:bg-sky-950/20",
-    textClass: "text-sky-600 dark:text-sky-400",
-    borderClass: "border-sky-100 dark:border-sky-900/30",
+    bgClass: "bg-sky-500/10",
+    textClass: "text-sky-400",
+    borderClass: "border-sky-500/20",
   },
   "Infrastructure as Code": {
     description: "Defining, provisioning, and managing cloud infrastructure using declarative configuration files with Terraform modules.",
     color: "#7c3aed",
-    bgClass: "bg-violet-50/50 dark:bg-violet-950/20",
-    textClass: "text-violet-600 dark:text-violet-400",
-    borderClass: "border-violet-100 dark:border-violet-900/30",
+    bgClass: "bg-violet-500/10",
+    textClass: "text-violet-400",
+    borderClass: "border-violet-500/20",
   },
   "CI/CD & Automation": {
     description: "Automating software delivery pipelines, builds, testing, and application deployment configurations using modern CI/CD tools.",
     color: "#ec4899",
-    bgClass: "bg-pink-50/50 dark:bg-pink-950/20",
-    textClass: "text-pink-600 dark:text-pink-400",
-    borderClass: "border-pink-100 dark:border-pink-900/30",
+    bgClass: "bg-pink-500/10",
+    textClass: "text-pink-400",
+    borderClass: "border-pink-500/20",
   },
   "Programming & Scripting": {
     description: "Writing clean, efficient code and automated automation scripts using Python, Bash, and modern web languages to connect and manage platform operations.",
     color: "#f59e0b",
-    bgClass: "bg-amber-50/50 dark:bg-amber-950/20",
-    textClass: "text-amber-600 dark:text-amber-400",
-    borderClass: "border-amber-100 dark:border-amber-900/30",
+    bgClass: "bg-amber-500/10",
+    textClass: "text-amber-400",
+    borderClass: "border-amber-500/20",
   },
   "Monitoring & Incident": {
     description: "Establishing comprehensive observability, audit logs, and monitoring alerts using Splunk, ServiceNow, and APM tools to guarantee uptime.",
     color: "#10b981",
-    bgClass: "bg-emerald-50/50 dark:bg-emerald-950/20",
-    textClass: "text-emerald-600 dark:text-emerald-400",
-    borderClass: "border-emerald-100 dark:border-emerald-900/30",
+    bgClass: "bg-emerald-500/10",
+    textClass: "text-emerald-400",
+    borderClass: "border-emerald-500/20",
   },
   "Operating Systems": {
     description: "Configuring, tuning, hardening, and maintaining enterprise Linux server distributions (RHEL, Ubuntu) and Unix-like environments.",
-    color: "#6b7280",
-    bgClass: "bg-slate-50/50 dark:bg-slate-950/20",
-    textClass: "text-slate-600 dark:text-slate-400",
-    borderClass: "border-slate-100 dark:border-slate-900/30",
+    color: "#94a3b8",
+    bgClass: "bg-slate-500/10",
+    textClass: "text-slate-350",
+    borderClass: "border-slate-500/20",
   },
   "Version Control": {
     description: "Collaborating on source code repositories, branch management, and git-based deployment workflows (GitOps) with GitHub and Bitbucket.",
     color: "#6366f1",
-    bgClass: "bg-indigo-50/50 dark:bg-indigo-950/20",
-    textClass: "text-indigo-600 dark:text-indigo-400",
-    borderClass: "border-indigo-100 dark:border-indigo-900/30",
+    bgClass: "bg-indigo-500/10",
+    textClass: "text-indigo-400",
+    borderClass: "border-indigo-500/20",
   },
 };
 
@@ -106,9 +106,9 @@ export function Skills() {
   const activeDetails = categoryDetails[activeCategoryName] || {
     description: "",
     color: "#3b82f6",
-    bgClass: "bg-blue-50/50",
-    textClass: "text-blue-600",
-    borderClass: "border-blue-100",
+    bgClass: "bg-blue-500/10",
+    textClass: "text-blue-400",
+    borderClass: "border-blue-500/20",
   };
 
   const ActiveIcon = iconMap[activeCategory?.icon] || Cloud;
@@ -117,7 +117,7 @@ export function Skills() {
     <section
       id="skills"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-24 bg-slate-50/50 dark:bg-slate-950/30 relative overflow-hidden"
+      className="py-24 bg-transparent relative overflow-hidden"
       aria-labelledby="skills-heading"
     >
       <Container>
@@ -134,7 +134,7 @@ export function Skills() {
             <div className="lg:col-span-4 flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-2 scrollbar-none snap-x">
               {skills.map((skill) => {
                 const CategoryIcon = iconMap[skill.icon] || Cloud;
-                const details = categoryDetails[skill.category] || { color: "#3b82f6", textClass: "text-blue-600" };
+                const details = categoryDetails[skill.category] || { color: "#3b82f6", textClass: "text-blue-400" };
                 const isActive = activeCategoryName === skill.category;
 
                 return (
@@ -144,8 +144,8 @@ export function Skills() {
                     className={cn(
                       "flex items-center gap-3 px-4 py-3.5 rounded-xl border text-left transition-all duration-200 snap-center shrink-0 cursor-pointer w-[240px] lg:w-full",
                       isActive
-                        ? "bg-white dark:bg-slate-900 border-black/5 shadow-md"
-                        : "bg-transparent border-transparent hover:bg-slate-100/50 dark:hover:bg-slate-900/30"
+                        ? "bg-white/[0.04] border-white/10 shadow-lg"
+                        : "bg-transparent border-transparent hover:bg-white/[0.02]"
                     )}
                     style={{
                       borderLeftWidth: isActive ? "4px" : "1px",
@@ -155,14 +155,14 @@ export function Skills() {
                     <div
                       className={cn(
                         "p-2 rounded-lg transition-colors shrink-0",
-                        isActive ? details.bgClass : "bg-slate-150/50 dark:bg-slate-900/50"
+                        isActive ? details.bgClass : "bg-white/[0.02]"
                       )}
                     >
                       <CategoryIcon
                         size={18}
                         className={cn(
                           "transition-colors",
-                          isActive ? details.textClass : "text-slate-400 dark:text-slate-500"
+                          isActive ? details.textClass : "text-slate-500 hover:text-slate-400"
                         )}
                       />
                     </div>
@@ -170,12 +170,12 @@ export function Skills() {
                       <p
                         className={cn(
                           "text-xs font-semibold truncate",
-                          isActive ? "text-slate-900 dark:text-white" : "text-slate-600 dark:text-slate-400"
+                          isActive ? "text-white" : "text-slate-450 hover:text-slate-300"
                         )}
                       >
                         {skill.category}
                       </p>
-                      <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">
+                      <p className="text-[10px] text-slate-500 mt-0.5 truncate">
                         {skill.items.length} tools / concepts
                       </p>
                     </div>
@@ -194,7 +194,7 @@ export function Skills() {
                   exit={reducedMotion ? {} : { opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                   className={cn(
-                    "rounded-2xl border bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm relative overflow-hidden",
+                    "rounded-2xl border bg-white/[0.02] p-6 md:p-8 shadow-xl backdrop-blur-md relative overflow-hidden",
                     activeDetails.borderClass
                   )}
                 >
@@ -205,15 +205,15 @@ export function Skills() {
                   />
 
                   {/* Header info */}
-                  <div className="flex items-start gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
+                  <div className="flex items-start gap-4 pb-6 border-b border-white/5">
                     <div className={cn("p-3 rounded-xl shrink-0", activeDetails.bgClass)}>
                       <ActiveIcon size={24} className={activeDetails.textClass} />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-slate-800 dark:text-white">
+                      <h3 className="text-base font-bold text-white">
                         {activeCategoryName}
                       </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
                         {activeDetails.description}
                       </p>
                     </div>
@@ -221,7 +221,7 @@ export function Skills() {
 
                   {/* Skills Grid */}
                   <div className="mt-8">
-                    <h4 className="text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 mb-4">
+                    <h4 className="text-[10px] uppercase font-bold tracking-wider text-slate-500 mb-4">
                       Core Technologies & Competencies
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
@@ -234,18 +234,18 @@ export function Skills() {
                           className={cn(
                             "group flex items-center justify-between px-4 py-3 rounded-xl border transition-all duration-200",
                             item.featured
-                              ? "bg-slate-50/50 dark:bg-slate-900/30 border-blue-100 dark:border-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700/40 shadow-sm"
-                              : "bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700/60"
+                              ? "bg-white/[0.03] border-blue-500/20 hover:border-blue-500/40 shadow-sm"
+                              : "bg-white/[0.01] border-white/5 hover:border-white/10"
                           )}
                         >
-                          <span className="text-xs font-mono font-medium text-slate-700 dark:text-slate-300">
+                          <span className="text-xs font-mono font-medium text-slate-200">
                             {item.name}
                           </span>
                           {item.featured && (
                             <div
                               className="flex items-center gap-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider shrink-0"
                               style={{
-                                backgroundColor: `${activeDetails.color}15`,
+                                backgroundColor: `${activeDetails.color}20`,
                                 color: activeDetails.color,
                               }}
                             >
@@ -267,11 +267,11 @@ export function Skills() {
             {skills.map((category) => (
               <div
                 key={category.category}
-                className="rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="rounded-xl border border-white/5 bg-white/[0.02] p-5 shadow-sm hover:shadow-md transition-shadow duration-200"
               >
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 mb-4 border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center justify-between">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4 border-b border-white/5 pb-2 flex items-center justify-between">
                   <span>{category.category}</span>
-                  <span className="text-[10px] text-slate-400 font-mono font-normal">
+                  <span className="text-[10px] text-slate-500 font-mono font-normal">
                     ({category.items.length})
                   </span>
                 </h3>
@@ -282,8 +282,8 @@ export function Skills() {
                       className={cn(
                         "inline-block px-2.5 py-1 text-[10px] font-mono font-medium rounded-md border",
                         item.featured
-                          ? "bg-blue-50/50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-900/30"
-                          : "bg-slate-50/50 dark:bg-slate-900/30 text-slate-500 dark:text-slate-400 border-slate-100 dark:border-slate-800"
+                          ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
+                          : "bg-white/[0.02] text-slate-400 border-white/5"
                       )}
                     >
                       {item.name}
